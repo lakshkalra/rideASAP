@@ -1,0 +1,219 @@
+
+/* GENERAL STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+h1, h3, h4, header .btn {
+  font-weight: 700;
+}
+
+h1 {
+  color: white;
+  // margin: 100px 0 20px;
+  text-transform: uppercase;
+  font-size: 2.6rem;
+}
+
+h3 {
+  // margin-bottom: 25px;
+  font-size: 2.3rem;
+  text-align: left;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+h3:after {
+  content: '';
+  display: block;
+  width: 10%;
+  padding-top: 5px;
+  border-bottom: 3px solid whitesmoke;
+}
+
+h1 + h4 {
+  font-weight: normal;
+}
+
+.row
+{
+  display: flex;
+  justify-content: space-around;
+  padding: 50px;
+}
+
+a {
+  text-align: center;
+  outline: none;
+  display: inline-block;
+  text-decoration: none;
+  background: #DD2476;
+  font-size: 14px;
+  color: steelblue;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+  -webkit-transition: all ease .3s;
+          transition: all ease .3s;
+}
+
+.btn {
+  font-size: 1.2em;
+  border-radius: 5px;
+  padding: 12px 30px;
+}
+
+.block {
+  width: 130px;
+  // margin: 0 auto;
+  display: block;
+}
+.one-half
+{
+  width: 40%;
+
+}
+
+
+
+/* HEADER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+header .btn {
+  text-transform: uppercase;
+}
+
+.container a:hover{
+  background: #FF512F;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #DD2476, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #DD2476, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+header .btn, .services {
+  margin-top: 100px;
+}
+
+header {
+  padding: 80px 0 150px;
+}
+
+.about, .contact {
+  padding: 150px 0;
+}
+
+header {
+  background: url("https://unsplash.it/1080/720/?image=377") no-repeat fixed center / cover;
+  text-align: center;
+}
+
+/* SERVICES STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.services a {
+  padding: 25px;
+  background: #fafafa;
+  margin-top: 20px;
+  border-radius: 4px;
+}
+
+.services a:hover {
+  color: black;
+}
+
+.services span {
+  font-size: 5.5em;
+  color: #DD2476;
+}
+
+.services a:hover span {
+  color: white;
+}
+
+.services p {
+  margin: 15px 0 0;
+}
+
+
+
+/* MEDIA QUERIES STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@media (min-width: 550px) {
+
+  nav li {
+    width: auto;
+  }
+
+  a {
+    box-shadow: 0 8px #DD2476;
+  }
+
+  nav a {
+    padding: 7px;
+    border-right: 1px solid #DD2476;
+    width: 80px;
+  }
+
+  nav li:nth-child(2n+1) a:after {
+    content: none;
+  }
+
+  nav li:last-child a {
+    border-right: none;
+  }
+
+  header a:hover, .about a:hover {
+    box-shadow: 0 8px #DD2476;
+  }
+
+  header a:active, .about a:active {
+    box-shadow: 0 4px #DD2476;
+    -webkit-transform: translateY(4px);
+        -ms-transform: translateY(4px);
+            transform: translateY(4px);
+  }
+
+  .about .one-third {
+    margin-top: 0;
+  }
+  
+  .about .one-third a {
+    width: 35%;  
+  }
+  
+  .contact .creator a {
+    box-shadow: none;
+  }
+
+}
+
+
+
+@media (min-width: 750px) {
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h3 {
+    font-size: 2.8rem;
+  }
+
+  h4 {
+    font-size: 2.4rem;
+  }
+
+  .services a:hover {
+    box-shadow: 0 -8px white;
+    -webkit-transform: scale(1.15);
+        -ms-transform: scale(1.15);
+            transform: scale(1.15);
+  }
+  
+  .contact ul a {
+    margin-left: 45px;
+  }
+
+  .contact ul span {
+    font-size: 3em;
+  }
+
+}

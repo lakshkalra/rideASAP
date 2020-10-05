@@ -1,0 +1,93 @@
+<app-overlay></app-overlay>
+<div class="form">
+  <ul class="tab-group">
+    <li class="tab active"><button href="#signup" id="Signup" routerLink="/Sign-Up"   >Sign Up</button></li>
+    <li class="tab"><button href="#login" id="Login" routerLink="/Sign-In">Log In</button></li>
+  </ul>
+  
+  <div class="tab-content">
+    <div id="signup">   
+      <h1>Hello There!</h1>
+      <div class="alert alert-danger" *ngIf="errorMsg">
+        {{errorMsg}}
+      </div>
+      <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+      
+      <div class="top-row">
+        <div class="field-wrap">
+          <input type="text" placeholder="First Name *" required autocomplete="off" class.is-invalid="first.invalid && first.touched" #first="ngModel" name="First-Name" [(ngModel)]="userModel.first_name"/>
+          <div *ngIf="first.errors && (first.invalid && first.touched)" >
+            <small class="text-danger" *ngIf="first.errors.required">Field is required</small>
+          </div>       
+        </div>
+        <div class="field-wrap">
+          <input type="text" placeholder="Last Name *"  required autocomplete="off" class.is-invalid="last.invalid && last.touched" #last="ngModel" name="Last-Name" [(ngModel)]="userModel.last_name"/>
+          <div *ngIf="last.errors && (last.invalid && last.touched)" >
+            <small class="text-danger" *ngIf="last.errors.required">Field is required</small>
+          </div>       
+        </div>
+      </div>
+      <div class="field-wrap">
+        <input type="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="E-mail *" required autocomplete="off" #email="ngModel" class.is-invalid="email.invalid && email.touched" name="E-mail" [(ngModel)]="userModel.email"/>
+        <div *ngIf="email.errors && (email.invalid && email.touched)" >
+          <small class="text-danger" *ngIf="email.errors.required">E-mail is required</small>
+         <small class="text-danger" *ngIf="email.errors.pattern">Enter a valid Email</small>
+        </div>       
+      </div>
+      <div class="field-wrap">
+        <input type="tel" pattern="^[0-9]{2}$" placeholder="Age *" required autocomplete="off" #age="ngModel" class.is-invalid="age.invalid && age.touched" name="age" [(ngModel)]="userModel.age"/>
+        <div *ngIf="age.errors && (age.invalid && age.touched)" >
+          <small class="text-danger" *ngIf="age.errors.required">Age is required</small>
+         <small class="text-danger" *ngIf="age.errors.pattern">Enter a valid Age</small>
+        </div>       
+      </div>
+      <div class="field-wrap">
+        <input type="tel" placeholder="Phone Number *" pattern="^\d[0-9]{9}$" #phone="ngModel" class.is-invalid="phone.invalid && phone.touched" required autocomplete="off" name="Phone-Number" [(ngModel)]="userModel.contact"/>
+        <div *ngIf="phone.errors && (phone.invalid && phone.touched)" >
+          <small class="text-danger" *ngIf="phone.errors.required">Phone number is required</small>
+          <small class="text-danger" *ngIf="phone.errors.pattern">Phone number must be 10 digits and numeric</small>
+        </div>     
+      </div>
+     
+      <div class="field-wrap">
+        <input type="password" placeholder="Set Password *" required autocomplete="off" name="Password" #pass="ngModel" class.is-invalid="pass.invalid && pass.touched" [(ngModel)]="userModel.password"/>
+        <div *ngIf="pass.errors && (pass.invalid && pass.touched)" >
+          <small class="text-danger" *ngIf="pass.errors.required">Password is required</small>
+        </div>       
+               
+      </div>
+      
+      <div class="field-wrap">
+        <input  (input)="confpass=$event.target.value" (input)="passcheck()" #conf="ngModel" type="password" placeholder="Confirm Password *" name="confirm" ngModel required autocomplete="off"/>
+        <div *ngIf="conf.touched || conf.dirty">
+          <small *ngIf="passbool; else Notsame" class="text-success">Correct</small>
+          <ng-template #Notsame> <small class="text-danger"> Enter the same password as above </small> </ng-template>
+        </div>
+        <div *ngIf="conf.errors && (conf.invalid && conf.touched)" >
+          <small class="text-danger" *ngIf="conf.errors.required">This field is required</small>
+        </div>       
+ 
+      </div>
+
+
+      <button [disabled]="userForm.form.invalid" type="submit" class="button button-block" >Get Started</button>
+      
+      <div class="field-wrap">
+        <div class="entry-social ">
+        <div class="fb">
+        <a href="Your_Facebok_Page" target="_blank">Facebook</a>
+        </div>
+        
+        <div class="gplus">
+        <a href="Your_Googleplus_Follow" target="_blank">Google+</a>
+        </div>
+        </div>
+      </div>
+      
+      </form>
+
+    </div>
+    
+    
+  </div><!-- tab-content -->
+</div> <!-- /form -->

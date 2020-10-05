@@ -1,0 +1,61 @@
+<main>
+    <header>
+      <h1>Your Ticket</h1>
+    </header>
+    <section class="travel--general">
+      <div>
+        <h2>{{src}}</h2>
+      </div>
+      <div>
+        <h4>to</h4>
+      </div>
+      <div>
+        <h2>{{dest}}</h2>
+      </div>
+    </section>
+    <section class="travel--TimeInfo">
+      <div>
+        <h5>Arrival Time</h5>
+        <p>{{arrivalTime}}</p>
+      </div>
+      <div>
+        <h5>Reaching Time</h5>
+        <p>{{rtime}}</p>
+      </div>
+      <div ng-app ng-controller='Ctrl'>
+        <h5>Total-time:</h5>
+        <p>{{ttime}}</p>
+      </div>
+    </section>
+    <section class="travel--PassInfo">
+      <div>
+        <h5>Passenger</h5>
+        <p>{{name}}</p>
+      </div>
+      <div>
+        <h5>Price:</h5 >
+        <h3>{{tprice}}</h3>
+      </div>
+      <div>
+        <h5>Total Distance:</h5 >
+        <h3>{{tdist}}</h3>
+      </div>
+    </section>
+    <section class="travel--qrcode"><qrcode [qrdata]="hashcode" [width]="180" [errorCorrectionLevel]="'M'"></qrcode>
+
+    </section>
+</main>
+<div class="area" >
+  <ul class="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+  </ul>
+</div >

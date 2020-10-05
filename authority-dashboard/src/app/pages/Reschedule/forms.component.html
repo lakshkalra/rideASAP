@@ -1,0 +1,141 @@
+<div class="wrapper default-theme" [ngClass]="getClasses()">
+  <app-navbar></app-navbar>
+
+<main>
+  <app-sidebar></app-sidebar>
+  <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 ">
+<div>
+
+  <h4 class="mb-4 text-muted">Rescheduling</h4>
+
+  <div class="row mb-4">
+
+    <div class="col-md-12">
+      <div class="card border-0 rounded-0">
+        <div class="card-title mb-1 p-3">
+          <h5>Today's Schedule</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive-md">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Bus Number</th>
+                  <th scope="col">Source</th>
+                  <th scope="col">Destination</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>304</td>
+                  <td>Okhla</td>
+                  <td>Chattarpur</td>
+                  <td>07:00</td>
+                  <td>
+                    <span class="badge badge-primary rounded-0 p-1">Fixed</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>073</td>
+                  <td>Dilshad Gdn.</td>
+                  <td>Seelampur</td>
+                  <td>16:00</td>
+                  <td>
+                    <span class="badge badge-warning rounded-0 p-1">partially demand</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>073</td>
+                  <td>Dilshad Gdn.</td>
+                  <td>Seelampur</td>
+                  <td>16:00</td>
+                  <td>
+                    <span class="badge badge-success rounded-0 p-1">On high demand</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>073</td>
+                  <td>Dilshad Gdn.</td>
+                  <td>Seelampur</td>
+                  <td>16:00</td>
+                  <td>
+                    <span class="badge badge-warning rounded-0 p-1">partially demand</span>
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>073</td>
+                  <td>Dilshad Gdn.</td>
+                  <td>Seelampur</td>
+                  <td>16:00</td>
+                  <td>
+                    <span class="badge badge-dark rounded-0 p-1">No demand</span>
+                  </td>
+                </tr>   
+             </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 mb-4 ">
+
+      <div class="card border-0 rounded-0">
+        <div class="card-title mb-1 p-3">
+          <h5>Reschedule</h5>
+          <div class="alert alert-danger" *ngIf="errorMsg">
+            {{errorMsg}}
+          </div>                                    
+          <div class="alert alert-success" *ngIf="successMsg">
+            {{successMsg}}
+          </div>                                    
+        </div>
+        <div class="card-body">
+          <form #busForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Bus Number to be changed</label>
+              <input name="prev" #prev="ngModel" pattern="^\d[0-9]{2}$" type="text" class="form-control  rounded-0" id="exampleFormControlInput1" [(ngModel)]="rebus.prev_bus_no" placeholder="000" required>
+              <div *ngIf="prev.errors && (prev.invalid && prev.touched)" >
+                <small class="text-danger" *ngIf="prev.errors.required">This Field is required</small>
+                <small class="text-danger" *ngIf="prev.errors.pattern">Bus Number must be 3 digits and numeric</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">New Bus Number</label>
+              <input name="new" #new="ngModel" pattern="^\d[0-9]{2}$" type="text" class="form-control  rounded-0" id="exampleFormControlInput1" [(ngModel)]="rebus.new_bus_no" placeholder="000" required>
+              <div *ngIf="new.errors && (new.invalid && new.touched)" >
+                <small class="text-danger" *ngIf="new.errors.required">This Field is required</small>
+                <small class="text-danger" *ngIf="new.errors.pattern">Bus Number must be 3 digits and numeric</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTime1">Quantity</label>
+              <input name="qty" #qty="ngModel" type="text" class="form-control  rounded-0" id="exampleFormControlInput1" [(ngModel)]="rebus.quantity" required>
+              <div *ngIf="qty.errors && (qty.invalid && qty.touched)" >
+                <small class="text-danger" *ngIf="qty.errors.required">This Field is required</small>
+                <small class="text-danger" *ngIf="qty.errors.pattern">Only numbers</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <button [disabled]="busForm.form.invalid" class="btn btn-lightning rounded-0 mb-2 mr-2">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<app-footer></app-footer>
+  </div>
+  <div class="overlay" (click)="toggleSidebar()"></div>
+</main>
+</div>

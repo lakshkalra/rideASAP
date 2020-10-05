@@ -1,0 +1,91 @@
+.jumbotron
+{
+    position: relative;
+    background: #FF512F;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #DD2476, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #DD2476, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+}
+.row
+{
+    margin: 30px;
+}
+button
+{
+    margin: 10px;
+    margin-left: 39%;
+    background:transparent;
+    color: #DD2476;
+    font-size: 1em;
+    padding: 10px;
+    color: #fff;
+    border: 2px solid #DD2476;
+    border-radius: 20px/50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+button:hover
+{
+    color: #fff;
+    background: #FF512F;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #DD2476, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #DD2476, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+}
+
+// pop-up
+#overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+#popup {
+    width: 30%;
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
+  
+  #popup h4 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+
+  #popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  #popup .close:hover {
+    color: #DD2476;
+  }
+  #popup .content {
+    max-height: 30%;
+    overflow: auto;
+  }
+@media screen and (max-width: 765px)
+{
+    #popup
+    {
+        width: 100%;
+    }
+    button
+    {
+        margin-left: 25px;
+    }
+}

@@ -1,0 +1,18 @@
+
+  <div class="container">
+    <section class="services">
+      <div class="row">
+        <div class="one-half column">
+          <a href="" *ngFor="let jorny of jrny">
+            <h4>{{jorny.source}}-{{jorny.destination}}</h4>
+            <span class="fa fa-bus"></span>
+            <p>Name: {{jorny.name}}</p>
+            <p>Age: {{jorny.age}}</p>
+            <p>Price: {{jorny.price}}</p>
+            <p>Total-time: {{jorny.totalTime}}</p>
+            <p>Date: {{jorny.date}}</p>
+          </a>
+        </div>
+      </div><!--end of .row-->   
+    </section>
+  </div><!--end of .container-->
