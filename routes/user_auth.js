@@ -10,7 +10,7 @@ const {user_register_validation, user_login_validation} = require('../validation
 
 // USER REGISTER
 router.post('/register',async (req, res) => {
-
+    console.log(req.body)
     // validate b4 make user
     const { error } = user_register_validation(req.body);
 

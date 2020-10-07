@@ -25,25 +25,26 @@ router.post('/reschedule/bus', async(req, res) => {
       res.status(400).json({er: 'not available',
                             qty: doc[0].quantity})
     }else{
+      res.json("ok report")
   
-    MongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
-      if (err) throw err;
-      var dbo = db.db("ibm6");
-      var myquery = { number: prev_bus_no };
-      var newvalues = { $inc: { quantity: -quantitys } };
-      dbo.collection("buses").updateOne(myquery, newvalues, function (err, result) {
-        if (err) throw err;
-        res.status(200)
-      });
+    // MongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
+    //   if (err) throw err;
+    //   var dbo = db.db("ibm6");
+    //   var myquery = { number: prev_bus_no };
+    //   var newvalues = { $inc: { quantity: -quantitys } };
+    //   dbo.collection("buses").updateOne(myquery, newvalues, function (err, result) {
+    //     if (err) throw err;
+    //     res.status(200)
+    //   });
 
-      var myquerys = { number: new_bus_no };
-      var newvaluess = { $inc: { quantity: +quantitys } };
-      dbo.collection("buses").updateOne(myquerys, newvaluess, function (err, result) {
-        if (err) throw err;
-        res.status(200).json('Document updated')
-        db.close();
-      });
-    });
+    //   var myquerys = { number: new_bus_no };
+    //   var newvaluess = { $inc: { quantity: +quantitys } };
+    //   dbo.collection("buses").updateOne(myquerys, newvaluess, function (err, result) {
+    //     if (err) throw err;
+    //     res.status(200).json('Document updated')
+    //     db.close();
+    //   });
+    // });
   }
   })
 });
