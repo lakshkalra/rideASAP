@@ -21,7 +21,7 @@ router.post('/bus/information', async (req,res)=>{
     })  
 })
 
-router.post('/train/information', (req,res)=>{
+router.post('/train/information', async(req,res)=>{
      
     const train = req.body.train_no
 
