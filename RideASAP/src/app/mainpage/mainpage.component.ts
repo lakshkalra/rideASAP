@@ -14,6 +14,7 @@ export class MainpageComponent implements OnInit {
   time="";
   totalPrice="";
   deptime="";
+  stations=['dwarka','moti nagar','jhande vala','saket','CS','chandni chowk','civil lines','vishwa vidhyalay','samaypur badli','mandi house','rajori', 'rajiv chowk', 'kashmiri gate', 'azad nagar', 'NSP', 'indraprasth','mayapyri', 'shalimar bagh', 'majis park', 'mukund pur', 'rithala', 'inderlok', 'tiz hazari', 'shahdra', 'dilshad garden', 'shaheed shtal', 'mohan estate'];
   dispath=[];
   apple= [];
   locate = new Location("","","");

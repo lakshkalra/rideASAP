@@ -27,7 +27,8 @@
               <div class="col-md-12">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fas fa-map-marker-alt"></i></span>
-                  <input name="Source" class="form-control" #src placeholder="Source" type="text" [(ngModel)]="locate.source" required>
+                  <select name="Source" id="source" class="form-control" #src [(ngModel)]="src.value.locate.source"></select>
+                  <!-- <input name="Source" class="form-control" #src placeholder="Source" type="text" [(ngModel)]="locate.source" required> -->
                   <div *ngIf="src.errors && (src.invalid && src.touched)" >
                     <small class="text-danger" *ngIf="src.errors.required">This Field is required</small>
                   </div>  
